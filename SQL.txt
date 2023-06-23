@@ -1,0 +1,120 @@
+Q1. A database is a structured collection of data that is organized, stored, and managed to provide efficient data retrieval and manipulation. It serves as a central repository for storing and managing data for various applications. Databases can be broadly categorized into two types: SQL and NoSQL.
+
+SQL (Structured Query Language) databases are relational databases that store data in tables with predefined schemas. They follow the ACID (Atomicity, Consistency, Isolation, Durability) properties and use SQL for querying and manipulating data. SQL databases are suitable for complex and structured data, and they ensure data integrity and consistency. Examples of SQL databases include MySQL, PostgreSQL, Oracle, and SQL Server.
+
+NoSQL (Not Only SQL) databases, on the other hand, are non-relational databases that provide flexible schemas for storing and retrieving data. They are designed to handle large amounts of unstructured or semi-structured data and offer high scalability and performance. NoSQL databases do not rely on SQL and use various data models like key-value, document, columnar, or graph. Examples of NoSQL databases include MongoDB, Cassandra, Redis, and Neo4j.
+
+Q2. DDL (Data Definition Language) is a subset of SQL used to define and manage the structure of a database. It includes commands like CREATE, DROP, ALTER, and TRUNCATE. Here's a brief explanation of each command with an example:
+
+- CREATE: Used to create database objects such as tables, views, indexes, or schemas. For example:
+  ```
+  CREATE TABLE employees (
+      id INT PRIMARY KEY,
+      name VARCHAR(100),
+      age INT
+  );
+  ```
+
+- DROP: Used to delete an entire database or specific objects within a database. For example:
+  ```
+  DROP TABLE employees;
+  ```
+
+- ALTER: Used to modify the structure of an existing database object, such as adding or deleting columns from a table. For example:
+  ```
+  ALTER TABLE employees
+  ADD COLUMN salary INT;
+  ```
+
+- TRUNCATE: Used to delete all data from a table, while keeping the structure intact. It is faster than the DELETE command. For example:
+  ```
+  TRUNCATE TABLE employees;
+  ```
+
+Q3. DML (Data Manipulation Language) is used to manipulate and retrieve data within a database. It includes commands like INSERT, UPDATE, and DELETE. Here's an explanation of each command with an example:
+
+- INSERT: Used to insert new records into a table. For example:
+  ```
+  INSERT INTO employees (id, name, age)
+  VALUES (1, 'John Doe', 25);
+  ```
+
+- UPDATE: Used to modify existing records in a table. For example:
+  ```
+  UPDATE employees
+  SET age = 26
+  WHERE id = 1;
+  ```
+
+- DELETE: Used to delete specific records from a table. For example:
+  ```
+  DELETE FROM employees
+  WHERE id = 1;
+  ```
+
+Q4. DQL (Data Query Language) is used to retrieve data from a database. The most common DQL command is SELECT. Here's an explanation of the SELECT command with an example:
+
+- SELECT: Used to query and retrieve data from one or more tables. It allows you to specify the columns to retrieve, apply filters, sort the results, and perform various other operations. For example:
+  ```
+  SELECT id, name, age
+  FROM employees
+  WHERE age > 25
+  ORDER BY name ASC;
+  ```
+
+Q5. Primary Key and Foreign Key are two types of constraints used in relational databases to establish relationships between tables:
+
+- Primary Key: A primary key is a unique identifier for a record in a table. It ensures the uniqueness and integrity of each record.
+
+ A primary key column cannot contain null values, and it must have a unique value for each record in the table. For example, in a table of employees, the "id" column can be defined as the primary key.
+
+- Foreign Key: A foreign key is a field or a set of fields in a table that refers to the primary key of another table. It establishes a relationship between two tables based on the values of the foreign key and the primary key. It ensures referential integrity, meaning that the values in the foreign key column must exist in the referenced primary key column. For example, in a table of orders, the "customer_id" column can be defined as a foreign key referring to the "id" column in the customers table.
+
+Q6. Here's an example Python code to connect MySQL to Python using the `mysql-connector-python` library:
+
+```python
+import mysql.connector
+
+# Establish connection
+conn = mysql.connector.connect(
+    host="localhost",
+    user="your_username",
+    password="your_password",
+    database="your_database"
+)
+
+# Create cursor object
+cursor = conn.cursor()
+
+# Execute SQL query
+cursor.execute("SELECT * FROM employees")
+
+# Fetch and print the results
+results = cursor.fetchall()
+for row in results:
+    print(row)
+
+# Close the cursor and connection
+cursor.close()
+conn.close()
+```
+
+In this code, the `mysql.connector` library is used to establish a connection to the MySQL database. The `connect` method is called with the necessary connection details. Then, a cursor object is created using the `cursor` method. The `execute` method is used to execute an SQL query (in this case, a SELECT statement). The results are fetched using the `fetchall` method, and then the retrieved rows are printed. Finally, the cursor and connection are closed.
+
+Q7. The order of execution of SQL clauses in an SQL query is as follows:
+
+1. SELECT: The SELECT clause is used to specify the columns to retrieve and any additional operations like aggregations or functions to perform on the data.
+
+2. FROM: The FROM clause specifies the table or tables from which to retrieve the data.
+
+3. WHERE: The WHERE clause is used to filter the data based on specific conditions.
+
+4. GROUP BY: The GROUP BY clause is used to group the data based on one or more columns.
+
+5. HAVING: The HAVING clause is used to filter the grouped data based on specific conditions.
+
+6. ORDER BY: The ORDER BY clause is used to sort the result set based on one or more columns, either in ascending (ASC) or descending (DESC) order.
+
+7. LIMIT: The LIMIT clause is used to restrict the number of rows returned by the query.
+
+It's important to note that not all clauses are required in every SQL query. The clauses can be combined and arranged in different ways depending on the specific requirements of the query.
