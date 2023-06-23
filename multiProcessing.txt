@@ -1,0 +1,66 @@
+1. Multiprocessing in Python refers to the ability to run multiple processes concurrently, 
+allowing for parallel execution of tasks. It utilizes multiple CPU cores or processors to execute 
+tasks simultaneously, thereby increasing efficiency and performance. It is useful for computationally intensive tasks 
+that can benefit from parallelization, such as data processing, scientific simulations, and parallel algorithms.
+
+2. The main differences between multiprocessing and multithreading are as follows:
+
+- Multiprocessing involves running multiple processes, where each process has its own memory space and resources. 
+In multithreading, multiple threads are executed within a single process, sharing the same memory space.
+- Processes in multiprocessing are independent and do not directly share data, requiring explicit communication mechanisms like pipes, 
+queues, or shared memory. Threads in multithreading can access shared data and variables directly, making communication between threads easier.
+- Due to separate memory spaces, processes in multiprocessing are more isolated and less prone to interference or crashes caused by one process. 
+Threads in multithreading can interfere with each other due to shared memory and need proper synchronization mechanisms to avoid race conditions.
+- Multiprocessing is suitable for CPU-bound tasks that can benefit from parallelization, while multithreading is more suitable for I/O-bound tasks 
+that involve waiting, such as network requests or file operations.
+
+3.
+
+import multiprocessing
+
+def worker():
+    """Function to be executed by the process."""
+    print("Worker process")
+
+if __name__ == '__main__':
+    # Create a new process
+    process = multiprocessing.Process(target=worker)
+
+    # Start the process
+    process.start()
+
+    # Wait for the process to finish
+    process.join()
+
+    print("Main process")
+```
+
+4. A multiprocessing pool in Python is a convenient abstraction provided by the multiprocessing module.
+It allows for the creation of a pool of worker processes, which can be used to parallelize the execution of a function across multiple inputs. 
+The pool manages the distribution of tasks to the available worker processes and provides a high-level interface for submitting and retrieving results from the worker processes.
+
+5.
+import multiprocessing
+
+def worker(number):
+    """Function to be executed by the worker process."""
+    result = number * 2
+    return result
+
+if __name__ == '__main__':
+    # Create a multiprocessing pool with 3 worker processes
+    pool = multiprocessing.Pool(processes=3)
+
+    # Define the inputs for the worker function
+    inputs = [1, 2, 3, 4, 5]
+
+    # Map the worker function to the inputs using the pool
+    results = pool.map(worker, inputs)
+
+    # Close the pool to prevent any more tasks from being submitted
+    pool.close()
+
+    # Wait for the worker processes to finish
+    pool.join()
+
+    print("Results:", results)
