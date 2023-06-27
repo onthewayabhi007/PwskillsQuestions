@@ -1,0 +1,37 @@
+Q1. What is an API? Give an example where an API is used in real life.
+
+A1. API stands for Application Programming Interface. It is a set of rules and protocols that allows different software applications to communicate and interact with each other. APIs define the methods and data formats that applications can use to request and exchange information. 
+
+An example of API usage in real life is when you use a social media platform like Facebook or Twitter and you see an option to share a webpage or an article. When you click on the share button, the website uses the API provided by the social media platform to send the necessary information and display it on your profile or timeline.
+
+Q2. Give advantages and disadvantages of using API.
+
+A2. 
+
+Advantages of using APIs:
+1. Integration: APIs enable different applications to integrate and work together seamlessly, allowing for efficient data sharing and communication.
+2. Reusability: APIs provide a way to reuse existing software components, saving development time and effort.
+3. Scalability: APIs allow for the scalability of applications by enabling them to interact with other services and resources.
+4. Collaboration: APIs facilitate collaboration between different developers and teams, as they can build on existing APIs and contribute to a larger ecosystem.
+5. Innovation: APIs encourage innovation by providing access to functionalities and data that can be leveraged to create new applications and services.
+
+Disadvantages of using APIs:
+1. Dependency: When applications rely heavily on external APIs, any changes or disruptions in those APIs can impact the functioning of dependent applications.
+2. Security risks: Exposing APIs to the public introduces security concerns, such as unauthorized access or data breaches if proper security measures are not implemented.
+3. Maintenance: APIs require regular maintenance and updates to ensure compatibility and security, which can be resource-intensive.
+4. Complexity: Working with APIs may involve understanding and managing complex documentation, authentication mechanisms, and data formats.
+5. Lack of control: When using third-party APIs, you rely on the provider's availability and performance, which can be outside of your control.
+
+Q3. What is a Web API? Differentiate between API and Web API.
+
+A3. A Web API, also known as a web service API, is an API that is specifically designed to be used over the internet through standard web protocols. It enables communication between different software systems and allows applications to interact with each other through HTTP (Hypertext Transfer Protocol). Web APIs are commonly used for web development, mobile app development, and other distributed systems.
+
+The main difference between API and Web API is that APIs are a broader term encompassing various types of interfaces that enable software components to interact, while Web APIs specifically refer to APIs that follow web-based standards and protocols. Web APIs are accessed over the internet using URLs, and the data is exchanged in formats such as JSON (JavaScript Object Notation) or XML (eXtensible Markup Language).
+
+Q4. Explain REST and SOAP Architecture. Mention shortcomings of SOAP.
+
+A4. 
+
+REST (Representational State Transfer): REST is an architectural style that defines a set of constraints for creating web services. It is based on a client-server model where the server provides resources, and the client can request and manipulate these resources using standard HTTP methods such as GET, POST, PUT, and DELETE. REST APIs use URLs to represent resources and return responses in formats like JSON or XML. REST is known for its simplicity, scalability, and compatibility with various platforms and devices.
+
+SOAP (Simple Object Access Protocol): SOAP is a protocol that defines a set of rules for structuring messages and performing remote procedure calls (RPC) over the internet. It relies on XML for message formatting and uses protocols like HTTP, SMTP, or others for transport. SOAP APIs typically use XML-based web service description languages like WSDL (Web
